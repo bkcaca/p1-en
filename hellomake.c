@@ -1,0 +1,11 @@
+// Copyright [2019] <vincent liu>
+
+#include <hellomake.h>
+
+int main() {
+  // call a function in another file
+  myPrintHelloMake();
+
+  return(0);
+}
+

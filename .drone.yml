@@ -1,0 +1,21 @@
+kind: pipeline
+name: default
+
+steps:
+- name: StaticCheck
+  image: neszt/cppcheck-docker
+  commands:
+  - cppcheck --check-config --enable=all .
+
+- name: StyleCheck
+  image: jlarfors/libgit2-cpplint
+  commands:
+    - cpplint *
+
+- name: build & run
+  image: gcc
+  commands:
+  - make
+  - make run
+
+
